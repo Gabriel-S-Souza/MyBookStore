@@ -4,7 +4,7 @@ Para concluir a etapa prática, você precisará criar o app chamado "**MyBookSt
 
 #### Links úteis:
 
-> [Wireframes no figma](https://www.figma.com/file/QQYFGtxMo50ExjAUWjFr2s/Prova-flutter?type=design&node-id=50-1963&t=jjiOalA9YnGeNXDd-0)
+> [Wireframes DRIVE](https://drive.google.com/file/d/1M8EaFYRAv6EhOlvOCmGSa9X3OVhpOCGH/view?usp=share_link)
 
 > Endereço da API: https://api-flutter-prova.hml.sesisenai.org.br/ (HTTP também disponível caso ocorram problemas)
 
@@ -16,6 +16,10 @@ Para concluir a etapa prática, você precisará criar o app chamado "**MyBookSt
 - Versão do Flutter: 3.7.12
 - A arquitetura e organização dos arquivos fica a critério do candidato, e será item de análise para a nota final.
 - A API possui o básico necessário para realização da prova, não é robusta e também não possui validações extras.
+- Serão aceitos commits feitos apenas até meia noite do dia 07/05/23.
+- Será avaliado o código que estiver na branch `main`.
+
+OBS: Em caso de dúvida, crie uma issue no repositório e marque o meu usuário (@JHBitencourtSenai). Irei responder se for algo pertinente ao PS, na medida do possível.
 
 #### Regras da aplicação:
 
