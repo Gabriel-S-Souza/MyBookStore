@@ -1,5 +1,5 @@
-import '../../../../core/commom/domain/entities/user_base/user_base_entity.dart';
-import '../../../../core/commom/domain/entities/user_types/user_type.dart';
+import '../../../../commom/domain/entities/user_base/user_base_entity.dart';
+import '../../../../commom/domain/entities/user_types/user_type.dart';
 
 class UserEntity extends UserBaseEntity {
   final String username;

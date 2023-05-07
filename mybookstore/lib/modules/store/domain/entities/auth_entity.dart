@@ -1,4 +1,4 @@
-import '../../../../core/commom/domain/entities/auth_base_entity.dart/auth_base_entity.dart';
+import '../../../../commom/domain/entities/auth_base_entity.dart/auth_base_entity.dart';
 
 class AuthEntity extends AuthBaseEntity {
   AuthEntity({

@@ -1,4 +1,4 @@
-import '../../../../core/commom/domain/entities/result/result.dart';
+import '../../../../commom/domain/entities/result/result.dart';
 import '../../../store/domain/entities/auth_entity.dart';
 import '../entities/book_entity.dart';
 import '../entities/search_params_entity.dart';

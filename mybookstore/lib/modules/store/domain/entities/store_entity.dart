@@ -1,4 +1,4 @@
-import '../../../../core/commom/domain/entities/store_base/store_base_entity.dart';
+import '../../../../commom/domain/entities/store_base/store_base_entity.dart';
 import 'user_entity.dart';
 
 class StoreEntity extends StoreBaseEntity {

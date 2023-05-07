@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 
-import '../commom/domain/entities/failure/failure.dart';
-import '../commom/domain/entities/response/response.dart';
+import '../../commom/domain/entities/failure/failure.dart';
+import '../../commom/domain/entities/response/response.dart';
 
 class HttpClient {
   final Dio _dio;

@@ -1,4 +1,4 @@
-import '../../../../core/commom/domain/entities/result/result.dart';
+import '../../../../commom/domain/entities/result/result.dart';
 import '../../domain/entities/auth_entity.dart';
 import '../../domain/entities/credentials_entity.dart';
 import '../../domain/repositories/login_repository_interface.dart';

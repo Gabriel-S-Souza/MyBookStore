@@ -17,7 +17,7 @@ class HomeCubit extends Cubit<HomeState> {
 
   Future<void> getBooks(int idStore) async {
     emit(const HomeStateLoading());
-    final result = await _getBooksCase.get(idStore);
+    final result = await _getBooksCase.getBooks(idStore);
     result.when(
       onSuccess: (books) => emit(HomeStateSuccess(books)),
       onFailure: (error) => emit(HomeStateError(error.message)),
@@ -26,7 +26,7 @@ class HomeCubit extends Cubit<HomeState> {
 
   Future<void> searchBooks(SearchParamsEntity params) async {
     emit(const HomeStateLoading());
-    final result = await _searchBooksCase.search(params);
+    final result = await _searchBooksCase.searchBooks(params);
     result.when(
       onSuccess: (books) => emit(HomeStateSuccess(books)),
       onFailure: (error) => emit(HomeStateError(error.message)),
