@@ -1,10 +1,10 @@
-import '../../../../core/commom/domain/entities/result.dart';
-import '../entities/autorization_entity.dart';
+import '../../../../core/commom/domain/entities/result/result.dart';
+import '../entities/auth_entity.dart';
 import '../entities/credentials_entity.dart';
 import '../repositories/login_repository_interface.dart';
 
 abstract class LoginCase {
-  Future<Result<AutorizationEntity>> login(CredentialsEntity credentialsEntity);
+  Future<Result<AuthEntity>> login(CredentialsEntity credentialsEntity);
 }
 
 class LoginCaseImp implements LoginCase {
@@ -13,6 +13,6 @@ class LoginCaseImp implements LoginCase {
   LoginCaseImp(this._repository);
 
   @override
-  Future<Result<AutorizationEntity>> login(CredentialsEntity credentialsEntity) =>
+  Future<Result<AuthEntity>> login(CredentialsEntity credentialsEntity) =>
       _repository.login(credentialsEntity);
 }

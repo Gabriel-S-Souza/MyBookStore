@@ -1,7 +1,7 @@
-import '../../../../core/commom/domain/entities/result.dart';
-import '../entities/autorization_entity.dart';
+import '../../../../core/commom/domain/entities/result/result.dart';
+import '../entities/auth_entity.dart';
 import '../entities/credentials_entity.dart';
 
 abstract class LoginRepository {
-  Future<Result<AutorizationEntity>> login(CredentialsEntity credentialsEntity);
+  Future<Result<AuthEntity>> login(CredentialsEntity credentialsEntity);
 }

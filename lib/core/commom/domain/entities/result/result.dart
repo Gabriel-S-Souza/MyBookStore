@@ -1,4 +1,4 @@
-import 'failure.dart';
+import '../failure/failure.dart';
 
 class Result<T> {
   final T? _data;

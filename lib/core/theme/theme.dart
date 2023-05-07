@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-final themeApp = ThemeData(
+final appTheme = ThemeData(
   colorScheme: ColorScheme.fromSwatch().copyWith(
     primary: _ColorsApp.primary.color,
     background: _ColorsApp.background.color,

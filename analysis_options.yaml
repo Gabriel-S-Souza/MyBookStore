@@ -7,7 +7,7 @@ linter:
     prefer_relative_imports: true
     avoid_dynamic_calls: true
     always_declare_return_types: true
-    avoid_catches_without_on_clauses: true
+    avoid_catches_without_on_clauses: false
     directives_ordering: true
     flutter_style_todos: true
     lines_longer_than_80_chars: false
