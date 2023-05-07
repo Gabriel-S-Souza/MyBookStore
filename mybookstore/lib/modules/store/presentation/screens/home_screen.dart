@@ -11,9 +11,11 @@ import '../../../../commom/presentation/widgets/header_screen_widget.dart';
 import '../../../../commom/presentation/widgets/loading_widget.dart';
 import '../../../../core/di/service_locator_imp.dart';
 import '../../../../core/routes/route_names.dart';
+import '../components/filter_dialog_component.dart';
 import '../cubits/home/home_cubit.dart';
 import '../cubits/home/home_state.dart';
 import '../widgets/card_book_widget.dart';
+import '../widgets/filter_button_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   final UserStoreInfoDTO userStoreInfoDTO;
@@ -25,6 +27,9 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController _searchController = TextEditingController();
+  final TextEditingController _titleController = TextEditingController();
+  final TextEditingController _authorController = TextEditingController();
+
   final _homeCubit = ServiceLocatorImp.I.get<HomeCubit>();
 
   @override
@@ -47,10 +52,32 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: const EdgeInsets.all(16),
             child: Column(
               children: [
-                TextFieldWidget(
-                  label: 'Buscar',
-                  controller: _searchController,
-                  prefixIcon: const Icon(Icons.search),
+                Row(
+                  children: [
+                    Expanded(
+                      child: TextFieldWidget(
+                        label: 'Buscar',
+                        controller: _searchController,
+                        prefixIcon: const Icon(Icons.search),
+                      ),
+                    ),
+                    FilterButtonWidget(
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (context) => FilterDialogComponent(
+                            titleController: _titleController,
+                            authorController: _authorController,
+                            idStore: widget.userStoreInfoDTO.idStore,
+                            onFilter: (params) {
+                              _homeCubit.searchBooks(params);
+                              Navigator.pop(context);
+                            },
+                          ),
+                        );
+                      },
+                    ),
+                  ],
                 ),
                 const SizedBox(height: 16),
                 Expanded(
@@ -60,6 +87,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       builder: (context, state) {
                         if (state is HomeStateLoading) {
                           return const LoadingWidget();
+                        }
+
+                        if (state is HomeStateEmpty) {
+                          return const Center(
+                            child: Text('Nenhum livro encontrado'),
+                          );
                         }
 
                         if (state is HomeStateSuccess) {

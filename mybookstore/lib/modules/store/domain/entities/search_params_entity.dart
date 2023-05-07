@@ -1,24 +1,26 @@
+import 'dart:developer';
+
 class SearchParamsEntity {
   final int idStore;
-  final String title;
-  final String author;
-  final int limit;
-  final int offset;
-  final int yearStart;
-  final int yearFinish;
-  final int rating;
-  final bool available;
+  final String? title;
+  final String? author;
+  final int? limit;
+  final int? offset;
+  final int? yearStart;
+  final int? yearFinish;
+  final int? rating;
+  final bool? available;
 
   SearchParamsEntity({
     required this.idStore,
     required this.title,
     required this.author,
-    required this.limit,
-    required this.offset,
-    required this.yearStart,
-    required this.yearFinish,
-    required this.rating,
-    required this.available,
+    this.limit,
+    this.offset,
+    this.yearStart,
+    this.yearFinish,
+    this.rating,
+    this.available,
   });
 
   factory SearchParamsEntity.empty(int idStore) => SearchParamsEntity(
@@ -38,16 +40,34 @@ class SearchParamsEntity {
   String get queryParams {
     final queryParams = <String>[];
 
-    // if (title.isNotEmpty) queryParams.add('title=$title');
-    if (author.isNotEmpty) queryParams.add('author=$author');
-    if (limit > 0) queryParams.add('limit=$limit');
-    if (offset > 0) queryParams.add('offset=$offset');
-    if (yearStart > 0) queryParams.add('yearStart=$yearStart');
-    if (yearFinish > 0) queryParams.add('yearFinish=$yearFinish');
-    if (rating > 0) queryParams.add('rating=$rating');
-    if (available) queryParams.add('available=$available');
+    if (title != null && title!.isNotEmpty) {
+      queryParams.add('title=$title');
+    }
+    if (author != null && author!.isNotEmpty) {
+      queryParams.add('author=$author');
+    }
+    if (limit != null && limit! > 0) {
+      queryParams.add('limit=$limit');
+    }
+    if (offset != null && offset! > 0) {
+      queryParams.add('offset=$offset');
+    }
+    if (yearStart != null && yearStart! > 0) {
+      queryParams.add('yearStart=$yearStart');
+    }
+    if (yearFinish != null && yearFinish! > 0) {
+      queryParams.add('yearFinish=$yearFinish');
+    }
+    if (rating != null && rating! > 0) {
+      queryParams.add('rating=$rating');
+    }
+    if (available != null) {
+      queryParams.add('available=$available');
+    }
 
-    return queryParams.join('&');
+    final String paramsResult = queryParams.join('&');
+    log('queryParams: $paramsResult');
+    return paramsResult;
   }
 
   @override

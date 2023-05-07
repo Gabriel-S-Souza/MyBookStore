@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 
 import '../../commom/domain/entities/failure/failure.dart';
 import '../../commom/domain/entities/response/response.dart';
@@ -133,7 +134,7 @@ class HttpClient {
     _dio.interceptors.add(LogInterceptor(
       requestBody: true,
       responseBody: true,
-      logPrint: (object) => log(object.toString()),
+      logPrint: (object) => debugPrint(object.toString()),
     ));
   }
 }

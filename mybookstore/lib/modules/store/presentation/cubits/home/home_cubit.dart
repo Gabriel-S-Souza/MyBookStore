@@ -19,7 +19,7 @@ class HomeCubit extends Cubit<HomeState> {
     emit(const HomeStateLoading());
     final result = await _getBooksCase.getBooks(idStore);
     result.when(
-      onSuccess: (books) => emit(HomeStateSuccess(books)),
+      onSuccess: (books) => emit(books.isEmpty ? const HomeStateEmpty() : HomeStateSuccess(books)),
       onFailure: (error) => emit(HomeStateError(error.message)),
     );
   }
@@ -28,7 +28,7 @@ class HomeCubit extends Cubit<HomeState> {
     emit(const HomeStateLoading());
     final result = await _searchBooksCase.searchBooks(params);
     result.when(
-      onSuccess: (books) => emit(HomeStateSuccess(books)),
+      onSuccess: (books) => emit(books.isEmpty ? const HomeStateEmpty() : HomeStateSuccess(books)),
       onFailure: (error) => emit(HomeStateError(error.message)),
     );
   }

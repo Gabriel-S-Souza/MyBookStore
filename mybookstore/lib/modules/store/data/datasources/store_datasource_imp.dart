@@ -46,7 +46,7 @@ class StoreDataSourceImp implements StoreDataSource {
       if (params.isEmpty) {
         path = '${ApiPaths.store}/${params.idStore}/book';
       } else {
-        path = '${ApiPaths.store}/${params.idStore}/book?q=${params.queryParams}';
+        path = '${ApiPaths.store}/${params.idStore}/book?${params.queryParams}';
       }
 
       final response = await _httpClient.get(

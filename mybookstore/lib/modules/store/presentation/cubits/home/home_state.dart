@@ -19,6 +19,10 @@ class HomeStateLoading extends HomeState {
   const HomeStateLoading();
 }
 
+class HomeStateEmpty extends HomeState {
+  const HomeStateEmpty();
+}
+
 class HomeStateError extends HomeState {
   final String message;
 
