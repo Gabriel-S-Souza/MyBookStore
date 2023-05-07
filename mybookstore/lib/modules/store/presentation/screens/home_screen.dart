@@ -5,9 +5,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../commom/domain/entities/dto/user_store_info_dto.dart';
 import '../../../../commom/presentation/text_field_widget.dart';
+import '../../../../commom/presentation/widgets/botton_nav_bar_widget.dart';
 import '../../../../commom/presentation/widgets/header_screen_widget.dart';
 import '../../../../commom/presentation/widgets/loading_widget.dart';
 import '../../../../core/di/service_locator_imp.dart';
+import '../../../../core/routes/route_names.dart';
 import '../cubits/home/home_cubit.dart';
 import '../cubits/home/home_state.dart';
 import '../widgets/card_book_widget.dart';
@@ -90,6 +92,30 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
+          bottomNavigationBar: BottomNavBarWidget(
+            onTap: _handleNavigation,
+          ),
         ),
       );
+
+  // TODO: Implement navigation by navigation bar
+  void _handleNavigation(int index) {
+    switch (index) {
+      case 0:
+        log('navigate to home screen');
+        break;
+      case 1:
+        Navigator.of(context).pushNamed(
+          RouteNames.employee,
+          arguments: widget.userStoreInfoDTO,
+        );
+        break;
+      case 2:
+        log('navigate to add book screen');
+        break;
+      case 3:
+        log('navigate to profile screen');
+        break;
+    }
+  }
 }
