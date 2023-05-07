@@ -13,12 +13,12 @@ class Result<T> {
 
   void when({
     required void Function(T) onSuccess,
-    required void Function(Failure) onFailure,
+    void Function(Failure)? onFailure,
   }) {
     if (_data != null) {
       onSuccess(data);
     } else {
-      onFailure(error);
+      onFailure?.call(error);
     }
   }
 }

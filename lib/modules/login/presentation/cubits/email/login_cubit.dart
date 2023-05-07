@@ -15,8 +15,7 @@ class LoginCubit extends Cubit<LoginState> {
     emit(state.startLoading());
     final result = await _loginCase.login(credentialEntity);
     result.when(
-      onSuccess: (auth) {
-        final userStoreInfoDTO = UserStoreInfoDTO.fromStoreEntity(auth.store);
+      onSuccess: (userStoreInfoDTO) {
         emit(state.loggedIn(userStoreInfoDTO));
       },
       onFailure: (error) => emit(state.copywith(errorMessage: error.message)),

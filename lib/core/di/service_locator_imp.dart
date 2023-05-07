@@ -43,7 +43,10 @@ class ServiceLocatorImp implements ServiceLocator {
     registerFactory<LoginRepository>(() => LoginRepositoryImp(get()));
 
     // use cases
-    registerFactory<LoginCase>(() => LoginCaseImp(get()));
+    registerFactory<LoginCase>(() => LoginCaseImp(
+          localStorage: get(),
+          repository: get(),
+        ));
 
     // cubits
     registerFactory<LoginCubit>(() => LoginCubit(get()));
