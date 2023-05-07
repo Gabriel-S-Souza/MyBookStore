@@ -98,11 +98,9 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       );
 
-  // TODO: Implement navigation by navigation bar
   void _handleNavigation(int index) {
     switch (index) {
       case 0:
-        log('navigate to home screen');
         break;
       case 1:
         Navigator.of(context).pushNamed(
@@ -111,10 +109,16 @@ class _HomeScreenState extends State<HomeScreen> {
         );
         break;
       case 2:
-        log('navigate to add book screen');
+        Navigator.of(context).pushNamed(
+          RouteNames.book,
+          arguments: widget.userStoreInfoDTO,
+        );
         break;
       case 3:
-        log('navigate to profile screen');
+        Navigator.of(context).pushNamed(
+          RouteNames.profile,
+          arguments: widget.userStoreInfoDTO,
+        );
         break;
     }
   }

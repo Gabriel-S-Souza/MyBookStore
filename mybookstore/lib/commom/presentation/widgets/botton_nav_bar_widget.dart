@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
-import '../nav_bar_notifier/botton_nav_bar_notifier.dart';
+import '../nav_bar_notifier/bottom_nav_bar_notifier.dart';
 
 class BottomNavBarWidget extends StatefulWidget {
   final List<IconData>? icons;

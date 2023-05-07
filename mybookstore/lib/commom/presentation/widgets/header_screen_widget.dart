@@ -17,7 +17,7 @@ class HeaderScreenWidget extends StatelessWidget implements PreferredSizeWidget 
 
   @override
   Widget build(BuildContext context) => Container(
-        padding: const EdgeInsets.fromLTRB(10, 16, 24, 0),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -44,7 +44,7 @@ class HeaderScreenWidget extends StatelessWidget implements PreferredSizeWidget 
               ),
             Expanded(
               child: Align(
-                alignment: const Alignment(-0.02, 0.0),
+                alignment: centerTitle ? Alignment.center : Alignment.centerLeft,
                 child: AutoSizeText(
                   title,
                   maxFontSize: fontSize,

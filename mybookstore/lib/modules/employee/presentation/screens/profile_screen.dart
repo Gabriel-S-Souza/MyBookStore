@@ -4,11 +4,11 @@ import '../../../../commom/domain/entities/dto/user_store_info_dto.dart';
 import '../../../../commom/presentation/nav_bar_notifier/bottom_nav_bar_notifier.dart';
 import '../../../../commom/presentation/widgets/botton_nav_bar_widget.dart';
 import '../../../../commom/presentation/widgets/header_screen_widget.dart';
-import '../../../../core/routes/route_names.dart';
+import '../../../../core/utils/repeater.dart';
 
-class EmployeeScreen extends StatelessWidget {
+class ProfileScreen extends StatelessWidget {
   final UserStoreInfoDTO userStoreInfoDTO;
-  const EmployeeScreen({
+  const ProfileScreen({
     super.key,
     required this.userStoreInfoDTO,
   });
@@ -22,12 +22,12 @@ class EmployeeScreen extends StatelessWidget {
         child: SafeArea(
           child: Scaffold(
             appBar: const HeaderScreenWidget(
-              title: 'Funcionários',
+              title: 'Perfil',
               centerTitle: false,
               fontSize: 20,
             ),
             body: const Center(
-              child: Text('Employee Screen'),
+              child: Text('Profile Screen'),
             ),
             bottomNavigationBar: BottomNavBarWidget(
               onTap: (index) => _handleNavigation(index, context),
@@ -39,15 +39,15 @@ class EmployeeScreen extends StatelessWidget {
   void _handleNavigation(int index, BuildContext context) {
     switch (index) {
       case 0:
-        Navigator.of(context).pop();
+        repeater(Navigator.of(context).pop, 3);
         break;
       case 1:
+        repeater(Navigator.of(context).pop, 2);
         break;
       case 2:
-        Navigator.of(context).pushNamed(RouteNames.book, arguments: userStoreInfoDTO);
+        Navigator.of(context).pop();
         break;
       case 3:
-        Navigator.of(context).pushNamed(RouteNames.profile, arguments: userStoreInfoDTO);
         break;
     }
   }
