@@ -13,6 +13,6 @@ class UserBaseModel extends UserBaseEntity {
         id: json['id'],
         name: json['name'],
         photo: json['photo'],
-        type: json['type'] == 'Employee' ? UserType.employee : UserType.admin,
+        type: json['role'] == 'Employee' ? UserType.employee : UserType.admin,
       );
 }

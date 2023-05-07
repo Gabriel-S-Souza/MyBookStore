@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
@@ -132,6 +133,7 @@ class HttpClient {
     _dio.interceptors.add(LogInterceptor(
       requestBody: true,
       responseBody: true,
+      logPrint: (object) => log(object.toString()),
     ));
   }
 }

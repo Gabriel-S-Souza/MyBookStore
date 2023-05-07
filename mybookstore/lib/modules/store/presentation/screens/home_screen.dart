@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../commom/domain/entities/dto/user_store_info_dto.dart';
+import '../../../../commom/domain/entities/user_types/user_type.dart';
 import '../../../../commom/presentation/text_field_widget.dart';
 import '../../../../commom/presentation/widgets/botton_nav_bar_widget.dart';
 import '../../../../commom/presentation/widgets/header_screen_widget.dart';
@@ -93,12 +94,26 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           bottomNavigationBar: BottomNavBarWidget(
-            onTap: _handleNavigation,
+            icons: widget.userStoreInfoDTO.userType == UserType.employee
+                ? const [
+                    Icons.home_outlined,
+                    Icons.person_outlined,
+                  ]
+                : null,
+            names: widget.userStoreInfoDTO.userType == UserType.employee
+                ? const [
+                    'Home',
+                    'Meu perfil',
+                  ]
+                : null,
+            onTap: widget.userStoreInfoDTO.userType == UserType.employee
+                ? _handleNavigationEmployee
+                : _handleNavigationAdmin,
           ),
         ),
       );
 
-  void _handleNavigation(int index) {
+  void _handleNavigationAdmin(int index) {
     switch (index) {
       case 0:
         break;
@@ -115,6 +130,19 @@ class _HomeScreenState extends State<HomeScreen> {
         );
         break;
       case 3:
+        Navigator.of(context).pushNamed(
+          RouteNames.profile,
+          arguments: widget.userStoreInfoDTO,
+        );
+        break;
+    }
+  }
+
+  void _handleNavigationEmployee(int index) {
+    switch (index) {
+      case 0:
+        break;
+      case 1:
         Navigator.of(context).pushNamed(
           RouteNames.profile,
           arguments: widget.userStoreInfoDTO,

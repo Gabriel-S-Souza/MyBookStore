@@ -35,7 +35,7 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
           Icons.home_outlined,
           Icons.search_rounded,
           Icons.add_box_outlined,
-          Icons.person_2_outlined,
+          Icons.person_outlined,
         ];
 
     _names = widget.names ??
@@ -43,7 +43,7 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
           'Home',
           'Funcionários',
           'Livros',
-          'Meu Perfil',
+          'Meu perfil',
         ];
 
     itemCount = _icons.length;

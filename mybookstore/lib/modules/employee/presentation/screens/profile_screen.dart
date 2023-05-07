@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../commom/domain/entities/dto/user_store_info_dto.dart';
+import '../../../../commom/domain/entities/user_types/user_type.dart';
 import '../../../../commom/presentation/nav_bar_notifier/bottom_nav_bar_notifier.dart';
 import '../../../../commom/presentation/widgets/botton_nav_bar_widget.dart';
 import '../../../../commom/presentation/widgets/header_screen_widget.dart';
@@ -30,13 +31,27 @@ class ProfileScreen extends StatelessWidget {
               child: Text('Profile Screen'),
             ),
             bottomNavigationBar: BottomNavBarWidget(
-              onTap: (index) => _handleNavigation(index, context),
+              icons: userStoreInfoDTO.userType == UserType.employee
+                  ? const [
+                      Icons.home_outlined,
+                      Icons.person_outlined,
+                    ]
+                  : null,
+              names: userStoreInfoDTO.userType == UserType.employee
+                  ? const [
+                      'Home',
+                      'Meu perfil',
+                    ]
+                  : null,
+              onTap: (index) => userStoreInfoDTO.userType == UserType.employee
+                  ? _handleNavigationEmployee(index, context)
+                  : _handleNavigationAdmin(index, context),
             ),
           ),
         ),
       );
 
-  void _handleNavigation(int index, BuildContext context) {
+  void _handleNavigationAdmin(int index, BuildContext context) {
     switch (index) {
       case 0:
         repeater(Navigator.of(context).pop, 3);
@@ -48,6 +63,16 @@ class ProfileScreen extends StatelessWidget {
         Navigator.of(context).pop();
         break;
       case 3:
+        break;
+    }
+  }
+
+  void _handleNavigationEmployee(int index, BuildContext context) {
+    switch (index) {
+      case 0:
+        Navigator.of(context).pop();
+        break;
+      case 1:
         break;
     }
   }
