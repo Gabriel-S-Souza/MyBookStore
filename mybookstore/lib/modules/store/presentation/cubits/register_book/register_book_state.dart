@@ -1,28 +1,27 @@
 import 'package:equatable/equatable.dart';
 
+import '../../../domain/entities/book_entity.dart';
+
 class RegisterBookState extends Equatable {
-  final String? response;
-
-  const RegisterBookState([this.response]);
-
   @override
-  List<Object?> get props => [response];
+  List<Object?> get props => [];
 }
 
 class RegisterBookStateInitial extends RegisterBookState {
-  const RegisterBookStateInitial();
+  RegisterBookStateInitial();
 }
 
 class RegisterBookStateLoading extends RegisterBookState {
-  const RegisterBookStateLoading();
+  RegisterBookStateLoading();
 }
 
 class RegisterBookStateError extends RegisterBookState {
   final String message;
 
-  const RegisterBookStateError(this.message);
+  RegisterBookStateError(this.message);
 }
 
 class RegisterBookStateSuccess extends RegisterBookState {
-  const RegisterBookStateSuccess(String response) : super(response);
+  final BookEntity bookCreated;
+  RegisterBookStateSuccess(this.bookCreated) : super();
 }

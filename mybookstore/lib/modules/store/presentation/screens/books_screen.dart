@@ -5,7 +5,6 @@ import '../../../../commom/presentation/nav_bar_notifier/bottom_nav_bar_notifier
 import '../../../../commom/presentation/widgets/botton_nav_bar_widget.dart';
 import '../../../../commom/presentation/widgets/header_screen_widget.dart';
 import '../../../../core/routes/route_names.dart';
-import '../../../../core/utils/repeater.dart';
 
 class BooksScreen extends StatelessWidget {
   final UserStoreInfoDTO userStoreInfoDTO;
@@ -48,15 +47,20 @@ class BooksScreen extends StatelessWidget {
   void _handleNavigation(int index, BuildContext context) {
     switch (index) {
       case 0:
-        repeater(Navigator.of(context).pop, 2);
+        Navigator.of(context).pushNamedAndRemoveUntil(
+          RouteNames.home,
+          (route) => route.isFirst,
+          arguments: userStoreInfoDTO,
+        );
         break;
       case 1:
-        Navigator.of(context).pop();
+        Navigator.of(context)
+            .pushReplacementNamed(RouteNames.employee, arguments: userStoreInfoDTO);
         break;
       case 2:
         break;
       case 3:
-        Navigator.of(context).pushNamed(RouteNames.profile, arguments: userStoreInfoDTO);
+        Navigator.of(context).pushReplacementNamed(RouteNames.profile, arguments: userStoreInfoDTO);
         break;
     }
   }

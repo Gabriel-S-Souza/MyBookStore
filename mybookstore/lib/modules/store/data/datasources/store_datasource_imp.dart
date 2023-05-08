@@ -69,4 +69,26 @@ class StoreDataSourceImp implements StoreDataSource {
       return Result.failure(UnmappedFailure(e.toString()));
     }
   }
+
+  @override
+  Future<Result<BookModel>> registerBook(BookModel book) async {
+    try {
+      final response = await _httpClient.post(
+        '${ApiPaths.store}/${book.idStore}/book',
+        body: book.toJson(),
+        token: _localStorage.get(StorageKeys.token),
+      );
+
+      if (response.isOk) {
+        final bookResponse = BookModel.fromJson(response.data);
+        return Result.success(bookResponse);
+      } else {
+        return Result.failure(UnmappedFailure(response.data.toString()));
+      }
+    } on Failure catch (e) {
+      return Result.failure(e);
+    } catch (e) {
+      return Result.failure(UnmappedFailure(e.toString()));
+    }
+  }
 }

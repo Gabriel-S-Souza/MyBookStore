@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../commom/presentation/text_field_widget.dart';
 import '../../../../commom/presentation/widgets/elevate_button_widget.dart';
+import '../../../../commom/presentation/widgets/text_field_widget.dart';
 import '../../domain/entities/search_params_entity.dart';
 
 class FilterDialogComponent extends StatelessWidget {

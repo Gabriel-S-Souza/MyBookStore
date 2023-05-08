@@ -39,15 +39,19 @@ class EmployeeScreen extends StatelessWidget {
   void _handleNavigation(int index, BuildContext context) {
     switch (index) {
       case 0:
-        Navigator.of(context).pop();
+        Navigator.of(context).pushNamedAndRemoveUntil(
+          RouteNames.home,
+          (route) => route.isFirst,
+          arguments: userStoreInfoDTO,
+        );
         break;
       case 1:
         break;
       case 2:
-        Navigator.of(context).pushNamed(RouteNames.book, arguments: userStoreInfoDTO);
+        Navigator.of(context).pushReplacementNamed(RouteNames.book, arguments: userStoreInfoDTO);
         break;
       case 3:
-        Navigator.of(context).pushNamed(RouteNames.profile, arguments: userStoreInfoDTO);
+        Navigator.of(context).pushReplacementNamed(RouteNames.profile, arguments: userStoreInfoDTO);
         break;
     }
   }

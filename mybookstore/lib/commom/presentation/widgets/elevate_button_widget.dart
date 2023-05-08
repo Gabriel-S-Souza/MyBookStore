@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 
 class ElevatedButtonWidget extends StatelessWidget {
   final String text;
+  final Widget? child;
   final VoidCallback onPressed;
   const ElevatedButtonWidget({
     super.key,
     required this.text,
     required this.onPressed,
+    this.child,
   });
 
   @override
@@ -14,7 +16,14 @@ class ElevatedButtonWidget extends StatelessWidget {
         height: 50,
         child: ElevatedButton(
           onPressed: onPressed,
-          child: Text(text),
+          child: child ??
+              Text(
+                text,
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
         ),
       );
 }

@@ -30,6 +30,7 @@ class TextFieldWidget extends StatelessWidget {
           style: const TextStyle(fontSize: 14),
           decoration: InputDecoration(
             labelText: label,
+            contentPadding: const EdgeInsets.all(0).copyWith(left: 10),
             labelStyle: const TextStyle(fontSize: 14),
             border: const OutlineInputBorder(),
             prefixIcon: prefixIcon,

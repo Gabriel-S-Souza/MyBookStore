@@ -6,5 +6,6 @@ import '../entities/store_entity.dart';
 
 abstract class StoreRepository {
   Future<Result<AuthEntity>> registerStore(StoreEntity store);
+  Future<Result<BookEntity>> registerBook(BookEntity book);
   Future<Result<List<BookEntity>>> searchBooks(SearchParamsEntity params);
 }

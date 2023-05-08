@@ -24,4 +24,25 @@ class BookModel extends BookEntity {
         rating: json['rating'],
         available: json['available'],
       );
+  factory BookModel.fromEntity(BookEntity entity) => BookModel(
+        id: entity.id,
+        idStore: entity.idStore,
+        title: entity.title,
+        author: entity.author,
+        synopsis: entity.synopsis,
+        imgage: entity.imgage,
+        year: entity.year,
+        rating: entity.rating,
+        available: entity.available,
+      );
+
+  Map<String, dynamic> toJson() => {
+        'title': title,
+        'author': author,
+        'synopsis': synopsis,
+        'cover': imgage,
+        'year': year,
+        'rating': rating,
+        'available': available,
+      };
 }

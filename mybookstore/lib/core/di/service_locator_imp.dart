@@ -14,9 +14,11 @@ import '../../modules/store/data/datasources/store_datasource_imp.dart';
 import '../../modules/store/data/repositories/store_repository_imp.dart';
 import '../../modules/store/domain/repositories/store_repository.dart';
 import '../../modules/store/domain/usecases/get_books_case.dart';
+import '../../modules/store/domain/usecases/register_book_case.dart';
 import '../../modules/store/domain/usecases/register_store_case.dart';
 import '../../modules/store/domain/usecases/search_books_case.dart';
 import '../../modules/store/presentation/cubits/home/home_cubit.dart';
+import '../../modules/store/presentation/cubits/register_book/register_book_cubit.dart';
 import '../http/dio_config.dart';
 import '../http/http_client.dart';
 import 'service_locator.dart';
@@ -73,6 +75,8 @@ class ServiceLocatorImp implements ServiceLocator {
 
     registerFactory<SearchBooksCase>(() => SearchBooksCaseImp(repository: get()));
 
+    registerFactory<RegisterBooksCase>(() => RegisterBooksCaseImp(repository: get()));
+
     // cubits
     registerFactory<LoginCubit>(() => LoginCubit(get()));
 
@@ -80,6 +84,8 @@ class ServiceLocatorImp implements ServiceLocator {
           getBooksCase: get(),
           searchBooksCase: get(),
         ));
+
+    registerFactory<RegisterBookCubit>(() => RegisterBookCubit(get()));
   }
 
   @override

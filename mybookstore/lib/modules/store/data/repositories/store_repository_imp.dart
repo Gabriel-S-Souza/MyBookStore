@@ -5,6 +5,7 @@ import '../../domain/entities/search_params_entity.dart';
 import '../../domain/entities/store_entity.dart';
 import '../../domain/repositories/store_repository.dart';
 import '../datasources/store_datasource.dart';
+import '../models/book_model.dart';
 import '../models/store_model.dart';
 
 class StoreRepositoryImp implements StoreRepository {
@@ -19,4 +20,8 @@ class StoreRepositoryImp implements StoreRepository {
   @override
   Future<Result<List<BookEntity>>> searchBooks(SearchParamsEntity params) =>
       _storeDataSource.searchBooks(params);
+
+  @override
+  Future<Result<BookEntity>> registerBook(BookEntity book) =>
+      _storeDataSource.registerBook(BookModel.fromEntity(book));
 }

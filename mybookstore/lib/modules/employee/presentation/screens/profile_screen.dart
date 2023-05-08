@@ -5,7 +5,7 @@ import '../../../../commom/domain/entities/user_types/user_type.dart';
 import '../../../../commom/presentation/nav_bar_notifier/bottom_nav_bar_notifier.dart';
 import '../../../../commom/presentation/widgets/botton_nav_bar_widget.dart';
 import '../../../../commom/presentation/widgets/header_screen_widget.dart';
-import '../../../../core/utils/repeater.dart';
+import '../../../../core/routes/route_names.dart';
 
 class ProfileScreen extends StatelessWidget {
   final UserStoreInfoDTO userStoreInfoDTO;
@@ -54,13 +54,18 @@ class ProfileScreen extends StatelessWidget {
   void _handleNavigationAdmin(int index, BuildContext context) {
     switch (index) {
       case 0:
-        repeater(Navigator.of(context).pop, 3);
+        Navigator.of(context).pushNamedAndRemoveUntil(
+          RouteNames.home,
+          (route) => route.isFirst,
+          arguments: userStoreInfoDTO,
+        );
         break;
       case 1:
-        repeater(Navigator.of(context).pop, 2);
+        Navigator.of(context)
+            .pushReplacementNamed(RouteNames.employee, arguments: userStoreInfoDTO);
         break;
       case 2:
-        Navigator.of(context).pop();
+        Navigator.of(context).pushReplacementNamed(RouteNames.book, arguments: userStoreInfoDTO);
         break;
       case 3:
         break;
