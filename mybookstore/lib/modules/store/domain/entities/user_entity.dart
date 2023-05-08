@@ -1,3 +1,5 @@
+// ignore_for_file: annotate_overrides, overridden_fields
+
 import '../../../../commom/domain/entities/user_base/user_base_entity.dart';
 import '../../../../commom/domain/entities/user_types/user_type.dart';
 
