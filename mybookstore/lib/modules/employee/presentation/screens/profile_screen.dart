@@ -28,7 +28,7 @@ class ProfileScreen extends StatelessWidget {
               fontSize: 20,
             ),
             body: const Center(
-              child: Text('Profile Screen'),
+              child: Text('TODO: Impement ProfileScreen'),
             ),
             bottomNavigationBar: BottomNavBarWidget(
               icons: userStoreInfoDTO.userType == UserType.employee

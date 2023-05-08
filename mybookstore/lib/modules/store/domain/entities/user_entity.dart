@@ -6,7 +6,7 @@ class UserEntity extends UserBaseEntity {
   final String password;
 
   UserEntity({
-    required super.id,
+    super.id,
     required super.name,
     required super.photo,
     required super.type,
@@ -30,7 +30,7 @@ class UserEntity extends UserBaseEntity {
       );
 
   factory UserEntity.register({
-    int id = 0,
+    int? id,
     required String name,
     required String photo,
     UserType type = UserType.employee,

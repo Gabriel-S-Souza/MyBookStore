@@ -20,22 +20,19 @@ class TextFieldWidget extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) => SizedBox(
-        height: 50,
-        child: TextFormField(
-          controller: controller,
-          obscureText: obscureText,
-          keyboardType: keyboardType,
-          readOnly: readOnly,
-          style: const TextStyle(fontSize: 14),
-          decoration: InputDecoration(
-            labelText: label,
-            contentPadding: const EdgeInsets.all(0).copyWith(left: 10),
-            labelStyle: const TextStyle(fontSize: 14),
-            border: const OutlineInputBorder(),
-            prefixIcon: prefixIcon,
-          ),
-          validator: validator,
+  Widget build(BuildContext context) => TextFormField(
+        controller: controller,
+        obscureText: obscureText,
+        keyboardType: keyboardType,
+        readOnly: readOnly,
+        style: const TextStyle(fontSize: 14),
+        decoration: InputDecoration(
+          labelText: label,
+          contentPadding: const EdgeInsets.all(0).copyWith(left: 10),
+          labelStyle: const TextStyle(fontSize: 14),
+          border: const OutlineInputBorder(),
+          prefixIcon: prefixIcon,
         ),
+        validator: validator,
       );
 }

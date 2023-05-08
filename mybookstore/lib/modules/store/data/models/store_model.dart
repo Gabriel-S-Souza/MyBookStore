@@ -20,12 +20,18 @@ class StoreModel extends StoreEntity {
       );
 
   factory StoreModel.fromEntity(StoreEntity entity) => StoreModel(
-        id: entity.id,
-        name: entity.name,
-        banner: entity.banner,
-        slogan: entity.slogan,
-        userModel: UserModel.fromEntity(entity.user as UserModel),
-      );
+      id: entity.id,
+      name: entity.name,
+      banner: entity.banner,
+      slogan: entity.slogan,
+      userModel: UserModel(
+        id: entity.user.id,
+        name: entity.user.name,
+        photo: entity.user.photo,
+        type: entity.user.type,
+        username: entity.user.username!,
+        password: entity.user.password!,
+      ));
 
   Map<String, dynamic> toJson() => {
         'name': name,

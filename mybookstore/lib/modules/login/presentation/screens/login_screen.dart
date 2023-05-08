@@ -6,6 +6,7 @@ import '../../../../commom/presentation/widgets/outlined_button_widget.dart';
 import '../../../../commom/presentation/widgets/text_field_widget.dart';
 import '../../../../core/di/service_locator_imp.dart';
 import '../../../../core/routes/route_names.dart';
+import '../../domain/entities/credentials_entity.dart';
 import '../cubits/email/login_cubit.dart';
 import '../cubits/email/login_state.dart';
 
@@ -84,16 +85,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       const SizedBox(height: 16),
                       ElevatedButtonWidget(
                         onPressed: () async {
-                          // TODO: Adjust this
-                          // if (_formKey.currentState!.validate()) {
-                          if (true) {
-                            // await _loginCubit.login(
-                            //   CredentialsEntity(
-                            //     username: _userController.text,
-                            //     password: _passwordController.text,
-                            //   ),
-                            // );
-                            await _loginCubit.autoLogin();
+                          if (_formKey.currentState!.validate()) {
+                            await _loginCubit.login(
+                              CredentialsEntity(
+                                username: _userController.text,
+                                password: _passwordController.text,
+                              ),
+                            );
 
                             if (_loginCubit.state.isLogged == true && mounted) {
                               Navigator.of(context).pushReplacementNamed(

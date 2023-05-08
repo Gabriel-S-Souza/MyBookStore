@@ -119,6 +119,8 @@ class HttpClient {
     }
 
     switch (e.type) {
+      case DioErrorType.unknown:
+        return UnmappedFailure(e.message != null ? e.message.toString() : e.error.toString());
       case DioErrorType.connectionTimeout:
         return OfflineFailure();
       case DioErrorType.cancel:

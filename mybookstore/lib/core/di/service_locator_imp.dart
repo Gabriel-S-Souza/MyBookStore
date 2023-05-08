@@ -19,6 +19,7 @@ import '../../modules/store/domain/usecases/register_store_case.dart';
 import '../../modules/store/domain/usecases/search_books_case.dart';
 import '../../modules/store/presentation/cubits/home/home_cubit.dart';
 import '../../modules/store/presentation/cubits/register_book/register_book_cubit.dart';
+import '../../modules/store/presentation/cubits/register_store/register_store_cubit.dart';
 import '../http/dio_config.dart';
 import '../http/http_client.dart';
 import 'service_locator.dart';
@@ -86,6 +87,8 @@ class ServiceLocatorImp implements ServiceLocator {
         ));
 
     registerFactory<RegisterBookCubit>(() => RegisterBookCubit(get()));
+
+    registerFactory<RegisterStoreCubit>(() => RegisterStoreCubit(get()));
   }
 
   @override

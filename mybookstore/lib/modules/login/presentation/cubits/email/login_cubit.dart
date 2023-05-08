@@ -22,14 +22,4 @@ class LoginCubit extends Cubit<LoginState> {
 
     emit(state.stopLoading());
   }
-
-  // TODO: Remove this method
-  Future autoLogin() async {
-    await login(
-      CredentialsEntity(
-        username: 'gabriel.s.souza',
-        password: '@Gabriel1',
-      ),
-    );
-  }
 }

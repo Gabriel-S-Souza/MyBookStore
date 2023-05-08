@@ -27,7 +27,7 @@ class EmployeeScreen extends StatelessWidget {
               fontSize: 20,
             ),
             body: const Center(
-              child: Text('Employee Screen'),
+              child: Text('TODO: Impement EmployeeScreen'),
             ),
             bottomNavigationBar: BottomNavBarWidget(
               onTap: (index) => _handleNavigation(index, context),
