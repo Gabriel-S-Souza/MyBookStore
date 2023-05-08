@@ -7,26 +7,34 @@ class TextFieldWidget extends StatelessWidget {
   final bool obscureText;
   final TextInputType? keyboardType;
   final Widget? prefixIcon;
+  final bool readOnly;
   const TextFieldWidget({
     super.key,
     this.label,
     this.validator,
     this.controller,
     this.obscureText = false,
+    this.readOnly = false,
     this.keyboardType,
     this.prefixIcon,
   });
 
   @override
-  Widget build(BuildContext context) => TextFormField(
-        controller: controller,
-        obscureText: obscureText,
-        keyboardType: keyboardType,
-        decoration: InputDecoration(
-          labelText: label,
-          border: const OutlineInputBorder(),
-          prefixIcon: prefixIcon,
+  Widget build(BuildContext context) => SizedBox(
+        height: 50,
+        child: TextFormField(
+          controller: controller,
+          obscureText: obscureText,
+          keyboardType: keyboardType,
+          readOnly: readOnly,
+          style: const TextStyle(fontSize: 14),
+          decoration: InputDecoration(
+            labelText: label,
+            labelStyle: const TextStyle(fontSize: 14),
+            border: const OutlineInputBorder(),
+            prefixIcon: prefixIcon,
+          ),
+          validator: validator,
         ),
-        validator: validator,
       );
 }

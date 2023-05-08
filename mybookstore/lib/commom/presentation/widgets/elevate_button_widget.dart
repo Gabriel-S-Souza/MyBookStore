@@ -10,8 +10,11 @@ class ElevatedButtonWidget extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) => ElevatedButton(
-        onPressed: onPressed,
-        child: Text(text),
+  Widget build(BuildContext context) => SizedBox(
+        height: 50,
+        child: ElevatedButton(
+          onPressed: onPressed,
+          child: Text(text),
+        ),
       );
 }

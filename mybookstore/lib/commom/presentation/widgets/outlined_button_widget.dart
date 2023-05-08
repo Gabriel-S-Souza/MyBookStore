@@ -10,8 +10,11 @@ class OutlinedButtonWidget extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) => OutlinedButton(
-        onPressed: onPressed,
-        child: Text(text),
+  Widget build(BuildContext context) => SizedBox(
+        height: 50,
+        child: OutlinedButton(
+          onPressed: onPressed,
+          child: Text(text),
+        ),
       );
 }

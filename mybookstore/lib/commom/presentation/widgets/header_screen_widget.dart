@@ -21,8 +21,9 @@ class HeaderScreenWidget extends StatelessWidget implements PreferredSizeWidget 
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            if (centerTitle)
+            if (onBackButtonTap != null)
               Flexible(
+                fit: FlexFit.loose,
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Visibility(
@@ -49,6 +50,7 @@ class HeaderScreenWidget extends StatelessWidget implements PreferredSizeWidget 
                   title,
                   maxFontSize: fontSize,
                   textAlign: TextAlign.center,
+                  maxLines: 1,
                   style: TextStyle(
                     fontSize: fontSize,
                     fontWeight: FontWeight.w500,
@@ -56,7 +58,7 @@ class HeaderScreenWidget extends StatelessWidget implements PreferredSizeWidget 
                 ),
               ),
             ),
-            const Spacer(),
+            if (onBackButtonTap != null) const Spacer(),
           ],
         ),
       );

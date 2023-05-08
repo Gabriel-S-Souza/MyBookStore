@@ -27,7 +27,7 @@ class LoginCubit extends Cubit<LoginState> {
   Future autoLogin() async {
     await login(
       CredentialsEntity(
-        username: 'gabriel.dev',
+        username: 'gabriel.s.souza',
         password: '@Gabriel1',
       ),
     );

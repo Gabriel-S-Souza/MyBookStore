@@ -6,6 +6,7 @@ import '../../modules/employee/presentation/screens/profile_screen.dart';
 import '../../modules/login/presentation/screens/login_screen.dart';
 import '../../modules/store/presentation/screens/books_screen.dart';
 import '../../modules/store/presentation/screens/home_screen.dart';
+import '../../modules/store/presentation/screens/register_book_screen.dart';
 import '../../modules/store/presentation/screens/register_store_screen.dart';
 import 'route_names.dart';
 
@@ -39,6 +40,11 @@ class AppRoutes {
         final userStoreInfoDTO = settings.arguments as UserStoreInfoDTO;
         return PageRouteBuilder(
           pageBuilder: (context, __, ___) => ProfileScreen(userStoreInfoDTO: userStoreInfoDTO),
+        );
+      case RouteNames.registerBook:
+        final userStoreInfoDTO = settings.arguments as UserStoreInfoDTO;
+        return PageRouteBuilder(
+          pageBuilder: (context, __, ___) => RegisterBookScreen(userStoreInfoDTO: userStoreInfoDTO),
         );
       default:
         return PageRouteBuilder(

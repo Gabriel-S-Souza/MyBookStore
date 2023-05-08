@@ -28,7 +28,15 @@ class BooksScreen extends StatelessWidget {
               fontSize: 20,
             ),
             body: const Center(
-              child: Text('Books Screen'),
+              child: Text('TODO: implement book list'),
+            ),
+            floatingActionButton: FloatingActionButton(
+              onPressed: () {
+                Navigator.of(context)
+                    .pushNamed(RouteNames.registerBook, arguments: userStoreInfoDTO);
+              },
+              backgroundColor: Theme.of(context).colorScheme.primary,
+              child: const Icon(Icons.add),
             ),
             bottomNavigationBar: BottomNavBarWidget(
               onTap: (index) => _handleNavigation(index, context),
