@@ -5,11 +5,15 @@ class UserBaseEntity {
   final String name;
   final String photo;
   final UserType type;
+  final String? username;
+  final String? password;
 
   UserBaseEntity({
     this.id,
     required this.name,
     required this.photo,
     required this.type,
+    this.username,
+    this.password,
   });
 }

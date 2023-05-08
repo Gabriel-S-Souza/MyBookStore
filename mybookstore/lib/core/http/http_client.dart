@@ -1,9 +1,10 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 
-import '../commom/domain/entities/failure/failure.dart';
-import '../commom/domain/entities/response/response.dart';
+import '../../commom/domain/entities/failure/failure.dart';
+import '../../commom/domain/entities/response/response.dart';
 
 class HttpClient {
   final Dio _dio;
@@ -117,6 +118,8 @@ class HttpClient {
     }
 
     switch (e.type) {
+      case DioErrorType.unknown:
+        return UnmappedFailure(e.message != null ? e.message.toString() : e.error.toString());
       case DioErrorType.connectionTimeout:
         return OfflineFailure();
       case DioErrorType.cancel:
@@ -132,6 +135,7 @@ class HttpClient {
     _dio.interceptors.add(LogInterceptor(
       requestBody: true,
       responseBody: true,
+      logPrint: (object) => debugPrint(object.toString()),
     ));
   }
 }

@@ -1,4 +1,4 @@
-import '../../../../core/commom/data/models/store_base_model.dart';
+import '../../../../commom/data/models/store_base_model.dart';
 import '../../domain/entities/auth_entity.dart';
 
 class AuthModel extends AuthEntity {

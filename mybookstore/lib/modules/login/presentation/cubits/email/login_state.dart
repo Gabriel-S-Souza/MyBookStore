@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import '../../../../../core/commom/domain/entities/dto/user_store_info_dto.dart';
+import '../../../../../commom/domain/entities/dto/user_store_info_dto.dart';
 
 class LoginState extends Equatable {
   final UserStoreInfoDTO? userStoreInfoDTO;

@@ -6,7 +6,7 @@ import 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   final LoginCase _loginCase;
-  LoginCubit(this._loginCase) : super(const LoginState(errorMessage: 'Mensagem de erro'));
+  LoginCubit(this._loginCase) : super(const LoginState());
 
   Future<void> login(CredentialsEntity credentialEntity) async {
     emit(state.startLoading());
@@ -17,6 +17,9 @@ class LoginCubit extends Cubit<LoginState> {
       },
       onFailure: (error) => emit(state.copywith(errorMessage: error.message)),
     );
+
+    if (isClosed) return;
+
     emit(state.stopLoading());
   }
 }
